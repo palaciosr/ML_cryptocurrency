@@ -10,9 +10,9 @@ def backTestPrices():
 
     df=pd.read_csv("sp500.csv")
 
-    X=df['Time']
+    X= df[['Open','High','Low','Volume']]
+    y= df['Close']
 
-    y=str(df['Price'])
 
     X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25)
 
@@ -26,9 +26,10 @@ def backTestPrices():
 # print(pred_price_score)
 df=pd.read_csv("sp500.csv")
 
-X=df['Time'].astype('float')
+#
 
-y=df['Price']
+X= df[['Open','High','Low','Volume']]
+y= df['Close']
 
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25)
 
